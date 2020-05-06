@@ -11,3 +11,19 @@ html {
   justify-content: center;
   align-items: center;
 }
+
+.custom-counter {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+.part-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.break {
+  display: inline-block;
+  margin: 0 1em;
+}

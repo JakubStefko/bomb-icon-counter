@@ -1,6 +1,62 @@
-var realDate = document.getElementById('real-date')
+// *** algorithm variables ***
+var endDate = new Date(2020, 4, 15, 12, 0, 0, 0).getTime()
+var currentDate = endDate - new Date().getTime()
+var days, minutes, seconds
+const interval = 1000 // call function interval time in ms (1s by default)
 
-setInterval(function () {
+// *** html fields ***
+var realDate = document.getElementById('real-date')
+var day = document.getElementById('day')
+var hour_0 = document.getElementById('1')
+var hour_1 = document.getElementById('2')
+var minute_0 = document.getElementById('3')
+var minute_1 = document.getElementById('4')
+var second_0 = document.getElementById('5')
+var second_1 = document.getElementById('6')
+
+function getCharArrayFromString(stringNumber = '') {
+  let array = stringNumber.split('')
+  switch (array.length) {
+    case 1:
+      return ['0', array[0]]
+    case 2:
+      return array
+    default:
+      return ['0', '0']
+  }
+}
+
+function updateDate() {
+  // *** calculating time left to the event ***
+  days = getCharArrayFromString((currentDate / 86400000).toFixed())
+  hours = getCharArrayFromString(((currentDate % 86400000) / 3600000).toFixed())
+  minutes = getCharArrayFromString(((currentDate % 3600000) / 60000).toFixed())
+  seconds = getCharArrayFromString(((currentDate % 60000) / 1000).toFixed())
+
   realDate.innerHTML =
-    new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()
-}, 1000)
+    'Days: ' +
+    days[0] +
+    days[1] +
+    ', ' +
+    hours[0] +
+    hours[1] +
+    ':' +
+    minutes[0] +
+    minutes[1] +
+    ':' +
+    seconds[0] +
+    seconds[1]
+
+  hour_0.setAttribute('class', 'icon-' + hours[0])
+  hour_1.setAttribute('class', 'icon-' + hours[1])
+  minute_0.setAttribute('class', 'icon-' + minutes[0])
+  minute_1.setAttribute('class', 'icon-' + minutes[1])
+  second_0.setAttribute('class', 'icon-' + seconds[0])
+  second_1.setAttribute('class', 'icon-' + seconds[1])
+
+  currentDate -= interval
+}
+
+updateDate()
+
+setInterval(updateDate, interval)

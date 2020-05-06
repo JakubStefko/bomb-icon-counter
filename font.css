@@ -20,7 +20,7 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  font-size: 16em;
+  font-size: 1.6em;
   align-content: center;
   justify-content: center;
 
@@ -29,6 +29,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-0:before {
+  content: '\e900';
+}
+.icon-1:before {
+  content: '\e901';
+}
+.icon-2:before {
+  content: '\e902';
+}
+.icon-3:before {
+  content: '\e903';
+}
 .icon-4:before {
   content: '\e904';
 }
@@ -41,21 +53,9 @@
 .icon-7:before {
   content: '\e907';
 }
-.icon-9:before {
-  content: '\e908';
-}
 .icon-8:before {
   content: '\e909';
 }
-.icon-:before {
-  content: '\e900';
-}
-.icon-1:before {
-  content: '\e901';
-}
-.icon-2:before {
-  content: '\e902';
-}
-.icon-3:before {
-  content: '\e903';
+.icon-9:before {
+  content: '\e908';
 }
