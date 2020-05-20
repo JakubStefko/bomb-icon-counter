@@ -1,5 +1,5 @@
 // *** algorithm variables ***
-var endDate = new Date(2020, 4, 15, 12, 0, 0, 0).getTime()
+var endDate = new Date(2020, 4, 21, 22, 10, 0, 0).getTime()
 var currentDate = endDate - new Date().getTime()
 var days, minutes, seconds
 const interval = 1000 // call function interval time in ms (1s by default)
@@ -14,24 +14,12 @@ var minute_1 = document.getElementById('4')
 var second_0 = document.getElementById('5')
 var second_1 = document.getElementById('6')
 
-function getCharArrayFromString(stringNumber = '') {
-  let array = stringNumber.split('')
-  switch (array.length) {
-    case 1:
-      return ['0', array[0]]
-    case 2:
-      return array
-    default:
-      return ['0', '0']
-  }
-}
-
 function updateDate() {
   // *** calculating time left to the event ***
-  days = getCharArrayFromString((currentDate / 86400000).toFixed())
-  hours = getCharArrayFromString(((currentDate % 86400000) / 3600000).toFixed())
-  minutes = getCharArrayFromString(((currentDate % 3600000) / 60000).toFixed())
-  seconds = getCharArrayFromString(((currentDate % 60000) / 1000).toFixed())
+  days = ('0' + Math.floor(currentDate / 86400000)).slice(-2)
+  hours = ('0' + Math.floor((currentDate % 86400000) / 3600000)).slice(-2)
+  minutes = ('0' + Math.floor((currentDate % 3600000) / 60000)).slice(-2)
+  seconds = ('0' + Math.floor((currentDate % 60000) / 1000)).slice(-2)
 
   realDate.innerHTML =
     'Days: ' +
